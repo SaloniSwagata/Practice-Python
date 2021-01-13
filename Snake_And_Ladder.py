@@ -47,7 +47,7 @@ def snake_ladder(current_value, dice_value):
 def check_win(player_name, position):
     if max_value == position:
         print(player_name + " won the game")
-        print("###### Game succesfully finished ######")
+        print("###### Game Succesfully Finished ######")
         return 1
     else:
         return 0
@@ -62,14 +62,18 @@ def start():
     player2_current_position = 0
     print("###### Let us Start ######")
     while True:
-        input_1 = input("Player 1: ")
-        if input_1=="roll":
-            dice_value = get_dice_value()
-        else:
-            while (True):
-                if int(input_1)>=1 and int(input_1)<=20:
-                    dice_value = int(input_1)
-                    break
+        while True:
+            input_1 = input("Player 1: ")
+            if input_1=="roll":
+                dice_value = get_dice_value()
+                break
+            else:
+                if input_1.isdecimal():
+                    if int(input_1)>=1 and int(input_1)<=20:
+                        dice_value = int(input_1)
+                        break
+                    else:
+                        print("Invalid Input. Try Again!")
                 else:
                     print("Invalid Input. Try Again!")
         print("You got a {}".format(dice_value))
@@ -79,14 +83,18 @@ def start():
         if check==1:
             break
 
-        input_2 = input("Player 2: ")
-        if input_2=="roll":
-            dice_value = get_dice_value()
-        else:
-            while (True):
-                if int(input_2)>=1 and int(input_2)<=20:
-                    dice_value = int(input_2)
-                    break
+        while True:
+            input_2 = input("Player 2: ")
+            if input_2=="roll":
+                dice_value = get_dice_value()
+                break
+            else:
+                if input_2.isdecimal():
+                    if int(input_2)>=1 and int(input_2)<=20:
+                        dice_value = int(input_2)
+                        break
+                    else:
+                        print("Invalid Input. Try Again!")
                 else:
                     print("Invalid Input. Try Again!")
         print("You got a {}".format(dice_value))
