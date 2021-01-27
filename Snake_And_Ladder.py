@@ -62,8 +62,14 @@ def start():
     player2_current_position = 0
     print("###### Let us Start ######")
     while True:
+        quits = 0
         while True:
             input_1 = input("Player 1: ")
+            if input_1 == "quit":
+                print("Player 2 won the game")
+                print("###### Game Succesfully Finished ######")
+                quits = 1
+                break
             if input_1=="roll":
                 dice_value = get_dice_value()
                 break
@@ -76,6 +82,8 @@ def start():
                         print("Invalid Input. Try Again!")
                 else:
                     print("Invalid Input. Try Again!")
+        if quits==1:
+            break
         print("You got a {}".format(dice_value))
         player1_current_position = snake_ladder(player1_current_position, dice_value)
 
@@ -85,6 +93,11 @@ def start():
 
         while True:
             input_2 = input("Player 2: ")
+            if input_2 == "quit":
+                print("Player 1 won the game")
+                print("###### Game Succesfully Finished ######")
+                quits = 1
+                break
             if input_2=="roll":
                 dice_value = get_dice_value()
                 break
@@ -97,6 +110,8 @@ def start():
                         print("Invalid Input. Try Again!")
                 else:
                     print("Invalid Input. Try Again!")
+        if quits==1:
+            break
         print("You got a {}".format(dice_value))
         player2_current_position = snake_ladder(player2_current_position, dice_value)
 
